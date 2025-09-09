@@ -56,7 +56,7 @@ type RingConfig struct {
 	KeepInstanceInTheRingOnShutdown bool          `yaml:"keep_instance_in_the_ring_on_shutdown"`
 
 	// Instance details
-	InstanceID             string   `yaml:"instance_id" doc:"hidden"`
+	InstanceID             string   `yaml:"instance_id,omitempty" doc:"hidden"`
 	InstanceInterfaceNames []string `yaml:"instance_interface_names"`
 	InstancePort           int      `yaml:"instance_port" doc:"hidden"`
 	InstanceAddr           string   `yaml:"instance_addr" doc:"hidden"`
