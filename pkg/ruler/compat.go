@@ -366,7 +366,7 @@ func DefaultTenantManagerFactory(cfg Config, p Pusher, q storage.Queryable, engi
 			QueryFunc:              queryFunc,
 			Context:                prometheusContext,
 			ExternalURL:            cfg.ExternalURL.URL,
-			NotifyFunc:             SendAlerts(notifier, cfg.ExternalURL.URL.String()),
+			NotifyFunc:             SendAlerts(notifier, cfg.ExternalURL.String()),
 			Logger:                 util_log.GoKitLogToSlog(log.With(logger, "user", userID)),
 			Registerer:             reg,
 			OutageTolerance:        cfg.OutageTolerance,
