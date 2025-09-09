@@ -33,7 +33,6 @@ import (
 	"github.com/cortexproject/cortex/pkg/configs/db"
 	_ "github.com/cortexproject/cortex/pkg/cortex/configinit"
 	"github.com/cortexproject/cortex/pkg/cortex/storage"
-	"github.com/cortexproject/cortex/pkg/cortexpb"
 	"github.com/cortexproject/cortex/pkg/distributor"
 	"github.com/cortexproject/cortex/pkg/engine"
 	"github.com/cortexproject/cortex/pkg/flusher"
@@ -109,7 +108,6 @@ type Config struct {
 	Flusher          flusher.Config                  `yaml:"flusher"`
 	Storage          storage.Config                  `yaml:"storage"`
 	LimitsConfig     validation.Limits               `yaml:"limits"`
-	Prealloc         cortexpb.PreallocConfig         `yaml:"prealloc" doc:"hidden"`
 	Worker           querier_worker.Config           `yaml:"frontend_worker"`
 	Frontend         frontend.CombinedFrontendConfig `yaml:"frontend"`
 	QueryRange       queryrange.Config               `yaml:"query_range"`
@@ -157,7 +155,6 @@ func (c *Config) RegisterFlags(f *flag.FlagSet) {
 	c.Flusher.RegisterFlags(f)
 	c.Storage.RegisterFlags(f)
 	c.LimitsConfig.RegisterFlags(f)
-	c.Prealloc.RegisterFlags(f)
 	c.Worker.RegisterFlags(f)
 	c.Frontend.RegisterFlags(f)
 	c.QueryRange.RegisterFlags(f)
